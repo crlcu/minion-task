@@ -6,7 +6,7 @@ use Mojo::Server;
 
 our $VERSION = '0.0.1';
 
-has [qw/error id parent_id user/];
+has [qw/id parent_id user/];
 
 has 'app' => sub { Mojo::Server->new->build_app('Mojo::HelloWorld') }, weak => 1;
 
@@ -23,7 +23,11 @@ has 'children' => sub {
     return \@children;
 };
 
+has 'error' => 'Failed.';
+
 has 'failed' => sub { 0 };
+
+has 'finish' => 'Action complete.';
 
 has 'name' => sub { ref(shift) };
 
