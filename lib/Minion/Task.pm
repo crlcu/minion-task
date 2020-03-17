@@ -4,7 +4,7 @@ use Mojo::Base -base;
 use Mojo::Loader qw(load_class);
 use Mojo::Server;
 
-our $VERSION = '0.0.2';
+our $VERSION = '0.0.3';
 
 has [qw/id guard parent_id user/];
 
@@ -28,8 +28,6 @@ has 'error' => 'Failed.';
 has 'failed' => sub { 0 };
 
 has 'finish' => 'Action complete.';
-
-has 'name' => sub { ref(shift) };
 
 has 'options' => sub {
     my $self = shift;
