@@ -79,7 +79,7 @@ sub processChain {
 
     my $e = load_class($task);
 
-    $self->app->fatal("Loading '$task' failed: $e") if ($e);
+    $self->app->log->fatal("Loading '$task' failed: $e") if ($e);
 
     $task->new(app => $self->app, args => $self->args, parent_id => $self->id)
         ->withChain(\@children)
